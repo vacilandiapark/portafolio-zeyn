@@ -9,24 +9,29 @@
 }
 
 body {
-    --padding-section: 30px;
+    --padding-section: 25px;
     --sombra: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(151, 34, 34, 0.04) 0px 10px 10px -5px;
     --size-xxl: 2.3rem;
     --size-xl: 1.8rem;
     --size-l: 1.5rem;
     --size-medium: 1.2rem;
     --size-small: 0.8rem;
-    --color-white: #f1f1f1;
+    --size-x-small: 0.6rem;
+    --color-white: #f9f9f9;
     --color-white-l: #dedede;
     --color-white-x: #fcfcfc;
-    --color-black: #0e0c0c;
-    --color-black-l: #505050;
+    --color-black: #3D3C38;
+    --color-black-l: #3B3B3B;
     --color-black-small: rgb(184, 178, 178);
     --color-black-hover: #ebebeb75;
-    --color-yellow: rgb(255, 174, 0);
-    --color-red: rgb(146, 10, 10);
+    --color-secondary: #eb4646;
     --bold-l: 600;
     --bold-xl: 800;
+    --light: 300;
+    --transicion: all 0.1s ease-out;
+    --color-intermedio: #7fb5d6;
+    --color-avanzado: #afd9a1;
+    --color-basico: #f5b595;
     background: var(--color-white);
     display: flex;
 }
@@ -35,11 +40,12 @@ body {
 .navbar {
     position: sticky;
     top: 0;
-    background: #fff;
+    background: var(--color-white-x);
     width: 220px;
     height: 100vh;
     box-shadow: var(--sombra);
     overflow-y: scroll;
+    z-index: 99999;
 }
 
 /* Modificar la apariencia de la barra de desplazamiento en WebKit (Chrome, Safari, etc.) */
@@ -76,7 +82,7 @@ body {
     display: flex;
     gap: 15px;
     align-items: center;
-    transition: all 0.1s ease-in-out;
+    transition: var(--transicion);
     cursor: pointer;
     font-size: var(--size-small);
     color: var(--color-black-l);
@@ -88,7 +94,7 @@ body {
 }
 
 .navbar .opciones li:hover {
-    border-left: 5px solid var(--color-red);
+    border-left: 5px solid var(--color-secondary);
     background: var(--color-black-hover);
 }
 
@@ -126,11 +132,18 @@ body {
     font-size: var(--size-small);
     text-decoration: none;
     color: var(--color-white);
-    background: var(--color-black);
+    background: var(--color-secondary);
     gap: 5px;
     padding: 15px 20px;
     border-radius: 5px;
     justify-content: center;
+    transition: var(--transicion);
+}
+
+.navbar .contacto a:hover {
+    background: var(--color-white-x);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
 }
 
 .navbar .contacto a svg {
@@ -141,33 +154,39 @@ main {
     width: calc(100% - 220px);
 }
 
-main .all{
+main .all {
     display: flex;
 }
 
-main .all .columna-1{
-    width: 70%;
-}
-
-main .all .columna-2{
-    width: 30%;
+main .all .columna-1 {
+    width: 60%;
 }
 
 .subnavbar {
+   /* position: sticky; */
+    top: 0;
     padding: 20px var(--padding-section);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: var(--transicion);
+    z-index: 999;
+}
+
+.subnavbar.white-bg {
+    background-color: var(--color-white-x);
+    box-shadow: var(--sombra);
 }
 
 .subnavbar h1 {
+    color: var(--color-white-x);
     font-size: var(--size-xl);
     font-weight: var(--bold-xl);
 }
 
 .subnavbar p {
     font-size: var(--size-small);
-    color: var(--color-black-l);
+    color: var(--color-white-x);
 }
 
 .subnavbar .opciones-2 {
@@ -178,12 +197,17 @@ main .all .columna-2{
 .subnavbar .opciones-2 a {
     color: var(--color-black);
     text-decoration: none;
-    background: #fff;
-    transition: all 0.3s ease-in-out;
+    background: var(--color-white-x);
+    transition: var(--transicion);
     box-shadow: var(--sombra);
     border-radius: 10px;
     display: flex;
     align-items: center;
+}
+
+.subnavbar .opciones-2 a:hover {
+    background: var(--color-secondary);
+    color: var(--color-white-x);
 }
 
 .subnavbar .opciones-2 a:nth-child(1) {
@@ -211,20 +235,30 @@ main .all .columna-2{
 }
 
 .banner .container {
+    position: relative;
     border-radius: 20px;
     width: 100%;
-    background: var(--color-white-x);
     box-shadow: var(--sombra);
     padding: 40px;
     gap: 50px;
     display: flex;
+    background: var(--color-white-x);
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transicion);
+    cursor: default;
 }
 
-.banner .container:hover {
-    transform: scale(1.01);
+.banner .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--color-secondary) 10%, var(--color-secondary));
+    filter: blur(130px);
+    transform: translate(calc(-50% + 15px), -50%);
+    z-index: -33;
 }
 
 .banner .container .text {
@@ -242,15 +276,17 @@ main .all .columna-2{
 }
 
 .banner .container p {
-    color: var(--color-black-l);
     font-size: var(--size-small);
+    line-height: 1.4;
+    color: var(--color-black-l);
     text-wrap: balance;
+    font-weight: var(--light);
 }
 
 .banner span,
 .banner .container .text p a {
     text-decoration: none;
-    color: var(--color-yellow);
+    color: var(--color-secondary);
     font-weight: var(--bold-l);
 }
 
@@ -268,17 +304,233 @@ main .all .columna-2{
     border-radius: 10px;
     padding: 15px 20px;
     /* Ajuste del padding */
-    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transicion);
     font-size: var(--size-small);
     font-weight: var(--bold-l);
 }
 
+.banner .buttons a svg{
+    width: 20px;
+    color: var(--color-white-x);
+}
+
 .banner .buttons a:nth-child(2) {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+.banner .buttons a:hover {
+    background: var(--color-white-x);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+}
+
+.banner .buttons a:hover > svg {
+    color: var(--color-black);
+}
+
+
+.carrusel-proyectos {
+    padding: 20px var(--padding-section);
+    width: calc(100% - 30px);
+    overflow: hidden;
+    cursor: grab;
+}
+
+.carrusel-proyectos .titulo {
+    font-size: var(--size-xl);
+    font-weight: var(--bold-xl);
+    padding: 0 0 var(--padding-section) 0;
+}
+
+.carrusel-proyectos .carrusel {
+    width: 100%;
+    height: 100%;
+}
+
+.carrusel-proyectos .pry {
+    height: 100%;
+    background: var(--color-white-x);
+    display: flex;
+    box-shadow: var(--sombra);
+    border-radius: 20px;
+    transition: var(--transicion);
+}
+
+.carrusel-proyectos .pry:hover {
+    transform: scale(1.02);
+}
+
+.carrusel-proyectos .pry .image {
+    width: 400px;
+    border-radius: 20px;
+    height: 250px;
+    background: var(--color-black);
+    overflow: hidden;
+}
+
+.carrusel-proyectos .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrusel-proyectos .pry .text {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100%;
+}
+
+.carrusel-proyectos .pry .text h1 {
+    font-size: var(--size-medium);
+    color: var(--color-black);
+    font-weight: var(--bold-l);
+    line-height: 1.08;
+}
+
+.carrusel-proyectos .skills {
+    display: flex;
+    gap: 10px;
+}
+
+.carrusel-proyectos .skills span {
+    font-size: var(--size-x-small);
+    background: var(--color-black-small);
+    padding: 3px 5px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--bold-l);
+}
+
+.carrusel-proyectos p {
+    font-size: var(--size-small);
+}
+
+.carrusel-proyectos .niveles{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.carrusel-proyectos .nivel {
+    font-weight: var(--bold-l);
+    color: var(--color-white-x);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 3px 5px;
+    background: var(--color-secondary);
+    font-size: var(--size-x-small);
+}
+
+.carrusel-proyectos .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.carrusel-proyectos a {
+    background: var(--color-black);
+    text-decoration: none;
+    color: var(--color-white);
+    border-radius: 10px;
+    padding: 10px 15px;
+    /* Ajuste del padding */
+    transition: var(--transicion);
+    font-size: var(--size-small);
+    font-weight: var(--bold-l);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.carrusel-proyectos a:nth-child(2) {
     background: var(--color-white-x);
     border: 1px solid var(--color-black);
     color: var(--color-black);
 }
 
-.banner .buttons a:hover {
-    background: var(--color-black-small);
+
+.carrusel-proyectos a:nth-child(1):hover {
+    background: var(--color-white-x);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+}
+
+.carrusel-proyectos a:nth-child(2):hover {
+    background: var(--color-black);
+    color: var(--color-white-x);
+}
+
+.carrusel-proyectos svg {
+    width: 18px;
+}
+
+
+.habilidades{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    gap: 10px;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    transition: var(--transicion);
+    background: var(--color-white-x);
+}
+
+.habilidades:hover{
+    transform: scale(1.02);
+}
+
+.habilidades span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--size-x-small);
+    color: var(--color-black-l);
+    padding: 0 15px 0 0;
+}
+
+.habilidades span svg{
+    width: 20px;
+}
+
+.habilidades span p{
+    margin-left: auto;
+    font-weight: var(--bold-l);
+    color: var(--color-white-x);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 3px 5px;
+    font-size: var(--size-x-small);
+}
+
+.habilidades #avanzado{
+    background: var(--color-avanzado);
+}
+
+.habilidades #intermedio{
+    background: var(--color-intermedio);
+}
+
+.habilidades #basico{
+    background: var(--color-basico);
+}
+
+.columna-2 .titulo {
+    font-size: var(--size-xl);
+    font-weight: var(--bold-xl);
+    padding: 0 0 var(--padding-section) 0;
+}
+
+main .all .columna-2 {
+    width: 40%;
+    padding: 20px 30px 20px 0;
 }
