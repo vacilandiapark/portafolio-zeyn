@@ -8,50 +8,71 @@
     scroll-behavior: smooth;
 }
 
-body{
+body {
     --padding-section: 30px;
-    --sombra: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    --sombra: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(151, 34, 34, 0.04) 0px 10px 10px -5px;
     --size-xxl: 2.3rem;
     --size-xl: 1.8rem;
     --size-l: 1.5rem;
     --size-medium: 1.2rem;
-    --size-small: 0.9rem;
+    --size-small: 0.8rem;
     --color-white: #f1f1f1;
+    --color-white-l: #dedede;
+    --color-white-x: #fcfcfc;
     --color-black: #0e0c0c;
     --color-black-l: #505050;
     --color-black-small: rgb(184, 178, 178);
     --color-black-hover: #ebebeb75;
     --color-yellow: rgb(255, 174, 0);
-    --color-red: rgb(146, 10, 10) ;
+    --color-red: rgb(146, 10, 10);
+    --bold-l: 600;
     --bold-xl: 800;
     background: var(--color-white);
+    display: flex;
 }
 
 
-.navbar{
+.navbar {
+    position: sticky;
+    top: 0;
     background: #fff;
     width: 220px;
-    height: 100%;
+    height: 100vh;
     box-shadow: var(--sombra);
-    position: absolute;
+    overflow-y: scroll;
 }
 
-.navbar .logo{
+/* Modificar la apariencia de la barra de desplazamiento en WebKit (Chrome, Safari, etc.) */
+.navbar::-webkit-scrollbar {
+    width: 5px;
+    /* Grosor de la barra de desplazamiento */
+}
+
+.navbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-white-l);
+    /* Color del pulgar de la barra de desplazamiento */
+}
+
+.navbar::-webkit-scrollbar-track {
+    background-color: var(--color-white);
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+.navbar .logo {
     padding-bottom: 40px;
     padding: 20px var(--padding-section);
 }
 
-.navbar .logo h1{
+.navbar .logo h1 {
     font-size: var(--size-xl);
     color: var(--color-black);
     font-weight: var(--bold-xl);
 }
 
-.navbar .container{
-}
+.navbar .container {}
 
-.navbar .opciones li{
-    padding: 10px var(--padding-section);
+.navbar .opciones li {
+    padding: 8px var(--padding-section);
     display: flex;
     gap: 15px;
     align-items: center;
@@ -61,91 +82,100 @@ body{
     color: var(--color-black-l);
 }
 
-.navbar .opciones li p{
+.navbar .opciones li p {
     font-size: var(--size-small);
     color: var(--color-black-l);
 }
 
-.navbar .opciones li:hover{
+.navbar .opciones li:hover {
     border-left: 5px solid var(--color-red);
     background: var(--color-black-hover);
 }
 
-.navbar .icon{
+.navbar .icon {
     width: 18px;
     height: auto;
 }
 
-.navbar .opciones{
+.navbar .opciones {
     display: flex;
     flex-direction: column;
     padding: 20px 0;
     border-bottom: 1px solid var(--color-black-small);
 }
 
-.navbar .socials{
+.navbar .socials {
     padding: 20px 0;
 }
 
-.navbar .socials h1{
+.navbar .socials h1 {
     padding: 0px var(--padding-section);
     font-size: var(--size-medium);
     color: var(--color-black-l);
 }
 
-.navbar .contacto{
+.navbar .contacto {
     width: 100%;
-    padding: var(--padding-section);
+    padding: 10px var(--padding-section);
     text-align: center;
 }
 
-.navbar .contacto a{
+.navbar .contacto a {
     display: flex;
     align-items: center;
     font-size: var(--size-small);
     text-decoration: none;
     color: var(--color-white);
-    background: var(--color-black) ;
+    background: var(--color-black);
     gap: 5px;
     padding: 15px 20px;
     border-radius: 5px;
     justify-content: center;
 }
 
-.navbar .contacto a svg{
+.navbar .contacto a svg {
     width: 20px;
 }
 
-main{
+main {
     width: calc(100% - 220px);
-    height: 100%;
-    margin-left: 220px;
-
 }
 
-.subnavbar{
+main .all{
+    display: flex;
+}
+
+main .all .columna-1{
+    width: 70%;
+}
+
+main .all .columna-2{
+    width: 30%;
+}
+
+.subnavbar {
     padding: 20px var(--padding-section);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.subnavbar h1{
+.subnavbar h1 {
     font-size: var(--size-xl);
     font-weight: var(--bold-xl);
 }
 
-.subnavbar p{
+.subnavbar p {
     font-size: var(--size-small);
     color: var(--color-black-l);
 }
 
-.subnavbar .opciones-2{
+.subnavbar .opciones-2 {
     display: flex;
     gap: 10px;
 }
 
-.subnavbar .opciones-2 a{
+.subnavbar .opciones-2 a {
     color: var(--color-black);
     text-decoration: none;
     background: #fff;
@@ -156,35 +186,34 @@ main{
     align-items: center;
 }
 
-.subnavbar .opciones-2 a:nth-child(1){
+.subnavbar .opciones-2 a:nth-child(1) {
     padding: 10px;
 }
 
-.subnavbar .opciones-2 a:nth-child(2){
+.subnavbar .opciones-2 a:nth-child(2) {
     padding: 10px;
 }
 
-.subnavbar .opciones-2 img{
+.subnavbar .opciones-2 img {
     width: 50px;
     border-radius: 10px;
     object-fit: cover;
     height: 100%;
 }
 
-.subnavbar .opciones-2 a:hover{
+.subnavbar .opciones-2 a:hover {
     transform: scale(1.08);
 }
 
 
-.banner{
+.banner {
     padding: 20px var(--padding-section);
 }
 
-.banner .container{
-    border-radius: 15px;
-    max-width: 1000px;
+.banner .container {
+    border-radius: 20px;
     width: 100%;
-    background: white;
+    background: var(--color-white-x);
     box-shadow: var(--sombra);
     padding: 40px;
     gap: 50px;
@@ -194,54 +223,42 @@ main{
     transition: all 0.3s ease-in-out;
 }
 
-.banner .container:hover{
-    transform: scale(1.02);
+.banner .container:hover {
+    transform: scale(1.01);
 }
 
-.banner .container .text{
+.banner .container .text {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 60%;
-}
-
-.banner .container .image{
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    transform: rotate(-3deg);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.banner .container img{
     width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
-.banner .container h1{
+.banner .container h1 {
     font-size: var(--size-xxl);
     color: var(--color-black);
     font-weight: var(--bold-xl);
+    line-height: 1;
 }
 
-.banner .container p{
+.banner .container p {
     color: var(--color-black-l);
     font-size: var(--size-small);
     text-wrap: balance;
 }
 
 .banner span,
-.banner .container .text p a{
+.banner .container .text p a {
     text-decoration: none;
     color: var(--color-yellow);
-    font-weight: var(--bold-xl);
+    font-weight: var(--bold-l);
 }
 
 .banner .buttons {
     display: flex;
-    gap: 10px; /* Espacio entre los botones */
+    padding: 10px 0 0 0;
+    gap: 10px;
+    /* Espacio entre los botones */
 }
 
 .banner .buttons a {
@@ -249,13 +266,17 @@ main{
     text-decoration: none;
     color: var(--color-white);
     border-radius: 10px;
-    padding: 15px 30px; /* Ajuste del padding */
+    padding: 15px 20px;
+    /* Ajuste del padding */
     transition: all 0.3s ease-in-out;
     font-size: var(--size-small);
+    font-weight: var(--bold-l);
 }
 
 .banner .buttons a:nth-child(2) {
-    background: var(--color-black-l);
+    background: var(--color-white-x);
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
 }
 
 .banner .buttons a:hover {
