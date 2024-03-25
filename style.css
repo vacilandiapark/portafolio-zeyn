@@ -19,11 +19,11 @@ body {
     --size-medium: 1.2rem;
     --size-small: 0.8rem;
     --size-x-small: 0.6rem;
-    --color-white: #f6f6f6;
+    --color-white: #f8fafc;
     --color-white-l: #dedede;
     --color-white-x: #fcfcfc;
-    --color-black: #181F30;
-    --color-black-l: #3B3B3B;
+    --color-black: #1d1f3c;
+    --color-black-l: #595a68;
     --color-black-small: rgb(184, 178, 178);
     --color-black-hover: #ebebeb75;
     --color-secondary: #910A67;
@@ -79,7 +79,7 @@ body {
     font-weight: var(--bold-xl);
 }
 
-.navbar .logo h1 span{
+.navbar .logo h1 span {
     color: var(--color-secondary);
 }
 
@@ -171,7 +171,7 @@ main .all .columna-1 {
 }
 
 .subnavbar {
-   /* position: sticky; */
+    /* position: sticky; */
     top: 0;
     padding: var(--padding-interno);
     display: flex;
@@ -210,6 +210,8 @@ main .all .columna-1 {
     box-shadow: var(--sombra);
     border-radius: 10px;
     display: flex;
+    font-size: var(--size-small);
+    font-weight: var(--light);
     align-items: center;
 }
 
@@ -219,10 +221,28 @@ main .all .columna-1 {
 }
 
 .subnavbar .opciones-2 a:nth-child(1) {
+    background: var(--color-secondary);
+    color: var(--color-white-x);
     padding: 10px;
 }
 
 .subnavbar .opciones-2 a:nth-child(2) {
+    background: var(--color-black);
+    color: var(--color-white-x);
+    padding: 10px;
+}
+
+.subnavbar .opciones-2 a:nth-child(3) {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 10px;
+}
+
+.subnavbar .opciones-2 a:nth-child(4) {
+    padding: 10px;
+}
+
+.subnavbar .opciones-2 a:nth-child(5) {
     padding: 10px;
 }
 
@@ -257,6 +277,11 @@ main .all .columna-1 {
     align-items: center;
     transition: var(--transicion);
     cursor: default;
+}
+
+.banner .container:hover{
+    border-bottom: 5px solid var(--color-secondary-opaque);
+    transform: scale(1.03);
 }
 
 /* 
@@ -324,7 +349,7 @@ main .all .columna-1 {
     font-weight: var(--bold-l);
 }
 
-.banner .buttons a svg{
+.banner .buttons a svg {
     width: 20px;
     color: var(--color-white-x);
 }
@@ -340,22 +365,30 @@ main .all .columna-1 {
     border: 1px solid var(--color-black);
 }
 
-.banner .buttons a:hover > svg {
+.banner .buttons a:hover>svg {
     color: var(--color-black);
 }
 
 
 .carrusel-proyectos {
     padding: 0px var(--padding-interno);
-    width: calc(100% - 30px);
+    width: calc(100% - 25px);
     overflow: hidden;
     cursor: grab;
 }
 
 .carrusel-proyectos .titulo {
-    font-size: var(--size-xl);
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: var(--size-l);
     font-weight: var(--bold-xl);
+    color: var(--color-black-l);
     padding: 0 0 var(--padding-section) 0;
+}
+
+.carrusel-proyectos .titulo svg{
+    width: 25px;
 }
 
 .carrusel-proyectos .carrusel {
@@ -384,7 +417,7 @@ main .all .columna-1 {
     overflow: hidden;
 }
 
-.carrusel-proyectos .image img{
+.carrusel-proyectos .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -413,8 +446,9 @@ main .all .columna-1 {
 
 .carrusel-proyectos .skills span {
     font-size: var(--size-x-small);
-    background: var(--color-black-small);
+    background: var(--color-avanzado-opaque);
     padding: 3px 5px;
+    color: var(--color-avanzado);
     border-radius: 5px;
     justify-content: center;
     align-items: center;
@@ -425,7 +459,7 @@ main .all .columna-1 {
     font-size: var(--size-small);
 }
 
-.carrusel-proyectos .niveles{
+.carrusel-proyectos .niveles {
     margin: 0;
     padding: 0;
     display: flex;
@@ -442,7 +476,7 @@ main .all .columna-1 {
     font-size: var(--size-x-small);
 }
 
-.carrusel-proyectos #best{
+.carrusel-proyectos #best {
     background: var(--color-intermedio-opaque);
     color: var(--color-intermedio);
 }
@@ -490,23 +524,30 @@ main .all .columna-1 {
 }
 
 
-.habilidades{
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: var(--padding-interno);
-    gap: 10px;
-    border-radius: 15px;
-    box-shadow: var(--sombra);
-    transition: var(--transicion);
-    background: var(--color-white-x);
+.habilidades {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-interno);
+    cursor: default;
 }
 
-.habilidades:hover{
+.habilidades .skills {
+    padding: var(--padding-interno);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: var(--color-white-x);
+    box-shadow: var(--sombra);
+    border-radius: 15px;
+    gap: 13px;
+    transition: var(--transicion);
+}
+
+.habilidades .skills:hover {
+    border-bottom: 5px solid var(--color-secondary-opaque);
     transform: scale(1.02);
 }
 
-.habilidades span{
+.habilidades span {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -515,11 +556,11 @@ main .all .columna-1 {
     padding: 0 15px 0 0;
 }
 
-.habilidades span svg{
+.habilidades span svg {
     width: 20px;
 }
 
-.habilidades span p{
+.habilidades span p {
     margin-left: auto;
     font-weight: var(--bold-l);
     color: var(--color-white-x);
@@ -529,28 +570,150 @@ main .all .columna-1 {
     font-size: var(--size-x-small);
 }
 
-.habilidades #avanzado{
+.habilidades #avanzado {
     background: var(--color-avanzado-opaque);
     color: var(--color-avanzado);
 }
 
-.habilidades #intermedio{
+.habilidades #intermedio {
     background: var(--color-intermedio-opaque);
     color: var(--color-intermedio);
 }
 
-.habilidades #basico{
+.habilidades #basico {
     background: var(--color-secondary-opaque);
     color: var(--color-secondary);
 }
 
-.columna-2 .titulo {
-    font-size: var(--size-xl);
+.columna-2 .habilidades .titulo {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: var(--size-l);
     font-weight: var(--bold-xl);
-    padding: 0 0 var(--padding-interno) 0;
+    color: var(--color-black-l);
+}
+
+.columna-2 .habilidades .titulo svg {
+    width: 25px;
+}
+
+.columna-2 .trayectoria .titulo {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: var(--size-l);
+    font-weight: var(--bold-xl);
+    color: var(--color-black-l);
+    padding: var(--padding-interno) 0;
+}
+
+.columna-2 .trayectoria .titulo svg {
+    width: 25px;
 }
 
 main .all .columna-2 {
     width: 40%;
     padding: var(--padding-interno) var(--padding-interno) var(--padding-interno) 0;
+}
+
+.trabajo{
+    background: var(--color-white-x);
+    box-shadow: var(--sombra);
+    border-radius: 15px;
+    padding: var(--padding-interno);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-interno);
+    transition: var(--transicion);
+    cursor: default;
+}
+
+.trabajo:hover{
+    transform: scale(1.03);
+    border-bottom: 5px solid var(--color-secondary-opaque);
+}
+
+.trabajo .block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trabajo span{
+    width: fit-content;
+    padding: 5px 8px;
+    background: var(--color-secondary-opaque);
+    color: var(--color-secondary);
+    font-size: var(--size-x-small);
+    border-radius: 5px;
+    font-weight: var(--bold-l);
+}
+
+.trabajo a{
+    color: var(--color-secondary);
+    font-size: var(--size-small);
+    font-weight: var(--bold-l);
+}
+
+.trabajo h2{
+    color: var(--color-black);
+    font-size: var(--size-medium);
+    font-weight: var(--bold-l);
+    line-height: 1.08;
+}
+
+.trabajo p{
+    font-size: var(--size-small);
+    color: var(--color-black-l);
+}
+
+.sobremi{
+    padding: var(--padding-interno);
+}
+
+.sobremi .container{
+    display: flex;
+    align-items: center;
+    background: var(--color-white-x);
+    box-shadow: var(--sombra);
+    border-radius: 15px;
+    padding: var(--padding-interno);
+}
+
+.sobremi .text{
+    width: 60%;
+}
+
+.sobremi .image{
+    width: 40%;
+    border-radius: 15px;
+    transform: rotate(3deg);
+    overflow: hidden;
+}
+
+.sobremi .image img{
+    border-radius: 15px;
+    width: 100%;
+}
+
+.sobremi .container h2{
+    font-size: var(--size-small);
+    color: var(--color-black-l);
+    font-weight: var(--light);
+    text-wrap: balance;
+}
+
+.sobremi .titulo {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-size: var(--size-l);
+    font-weight: var(--bold-xl);
+    color: var(--color-black-l);
+    padding: 0 0 var(--padding-section) 0;
+}
+
+.sobremi .titulo svg{
+    width: 25px;
 }
