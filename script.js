@@ -43,8 +43,36 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener los elementos de la barra de navegación y los banners correspondientes
     const navInicio = document.getElementById('inicio');
     const navHabilidades = document.getElementById('habilidades');
+    const navTrayectoria = document.getElementById('trayectoria');
+    const navSobremi = document.getElementById('sobremi');
+    const navProyectos = document.getElementById('proyectos');
     const bannerInicio = document.getElementById('banner-inicio');
     const bannerHabilidades = document.getElementById('container-habilidades');
+    const bannerTrayectoria = document.getElementById('container-trayectoria');
+    const bannerSobremi = document.getElementById('container-sobremi');
+    const bannerProyectos = document.getElementById('container-proyectos');
+
+    // Función para activar los banners correspondientes al hacer clic en los elementos de la barra de navegación
+    function activarBannerYDesplazar(navElement, banner) {
+        // Desplazar a la posición del banner
+        banner.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Activar el estado "activo" en el banner correspondiente
+        bannerInicio.classList.remove('active');
+        bannerHabilidades.classList.remove('active');
+        bannerTrayectoria.classList.remove('active');
+        bannerSobremi.classList.remove('active');
+        bannerProyectos.classList.remove('active');
+        banner.classList.add('active');
+
+        // Activar el estado "activo" en el elemento de navegación correspondiente
+        navInicio.classList.remove('active');
+        navHabilidades.classList.remove('active');
+        navTrayectoria.classList.remove('active');
+        navSobremi.classList.remove('active');
+        navProyectos.classList.remove('active');
+        navElement.classList.add('active');
+    }
 
     // Agregar event listeners para el evento 'mouseenter' y 'mouseleave' a los elementos de la barra de navegación
     navInicio.addEventListener('mouseenter', function () {
@@ -53,11 +81,47 @@ document.addEventListener("DOMContentLoaded", function () {
     navInicio.addEventListener('mouseleave', function () {
         bannerInicio.classList.remove('active');
     });
+    navInicio.addEventListener('click', function () {
+        activarBannerYDesplazar(navInicio, bannerInicio);
+    });
 
     navHabilidades.addEventListener('mouseenter', function () {
         bannerHabilidades.classList.add('active');
     });
     navHabilidades.addEventListener('mouseleave', function () {
         bannerHabilidades.classList.remove('active');
+    });
+    navHabilidades.addEventListener('click', function () {
+        activarBannerYDesplazar(navHabilidades, bannerHabilidades);
+    });
+
+    navTrayectoria.addEventListener('mouseenter', function () {
+        bannerTrayectoria.classList.add('active');
+    });
+    navTrayectoria.addEventListener('mouseleave', function () {
+        bannerTrayectoria.classList.remove('active');
+    });
+    navTrayectoria.addEventListener('click', function () {
+        activarBannerYDesplazar(navTrayectoria, bannerTrayectoria);
+    });
+
+    navSobremi.addEventListener('mouseenter', function () {
+        bannerSobremi.classList.add('active');
+    });
+    navSobremi.addEventListener('mouseleave', function () {
+        bannerSobremi.classList.remove('active');
+    });
+    navSobremi.addEventListener('click', function () {
+        activarBannerYDesplazar(navSobremi, bannerSobremi);
+    });
+
+    navProyectos.addEventListener('mouseenter', function () {
+        bannerProyectos.classList.add('active');
+    });
+    navProyectos.addEventListener('mouseleave', function () {
+        bannerProyectos.classList.remove('active');
+    });
+    navProyectos.addEventListener('click', function () {
+        activarBannerYDesplazar(navProyectos, bannerProyectos);
     });
 });

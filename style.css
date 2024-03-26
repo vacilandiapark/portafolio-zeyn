@@ -287,16 +287,6 @@ main .all .columna-1 {
     transform: var(--hover-scale);
 }
 
-.banner .active {
-    border: 2px solid var(--color-secondary);
-    border-radius: 20px;
-}
-
-.habilidades .active{
-    border: 2px solid var(--color-secondary);
-    border-radius: 20px
-}
-
 /* 
 
 .banner .container::before {
@@ -385,9 +375,11 @@ main .all .columna-1 {
 
 .carrusel-proyectos {
     padding: 0px var(--padding-interno);
-    width: calc(100% - 25px);
-    overflow: hidden;
+    width: 100%;
     cursor: grab;
+}
+
+.carrusel-proyectos .swiper-wrapper{
 }
 
 .carrusel-proyectos .titulo {
@@ -397,7 +389,7 @@ main .all .columna-1 {
     font-size: var(--size-l);
     font-weight: var(--bold-xl);
     color: var(--color-black-l);
-    padding: 0 0 var(--padding-section) 0;
+    padding: 0 0 var(--padding-interno) 0;
 }
 
 .carrusel-proyectos .titulo svg {
@@ -405,8 +397,20 @@ main .all .columna-1 {
 }
 
 .carrusel-proyectos .carrusel {
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    border-radius: 20px;
+    background: var(--color-white-x);
+    border: 1px solid var(--color-black-small);
+    padding: var(--padding-interno);
     width: 100%;
+    transition: var(--transicion);
     height: 100%;
+}
+
+.carrusel-proyectos .carrusel:hover {
+    border-bottom: var(--hover-border);
+    transform: var(--hover-scale);
 }
 
 .carrusel-proyectos .pry {
@@ -799,5 +803,38 @@ main .all .columna-2 {
 
 .progreso #contador {
     font-size: var(--size-small);
-    color: var(--color-black-l);
+    color: var(--color-black);
+}
+
+
+
+
+.banner .active {
+    transform: var(--hover-scale);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+}
+
+.habilidades .active {
+    transform: var(--hover-scale);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+}
+
+.trayectoria .active {
+    transform: var(--hover-scale);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+}
+
+.sobremi .active {
+    transform: var(--hover-scale);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+}
+
+.carrusel-proyectos .active {
+    transform: var(--hover-scale);
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
 }
