@@ -125,3 +125,26 @@ document.addEventListener("DOMContentLoaded", function () {
         activarBannerYDesplazar(navProyectos, bannerProyectos);
     });
 });
+
+
+/* -------------------------------------------- */
+
+function cambiarTema() {
+    var body = document.body;
+    body.id = (body.id === "light") ? "dark" : "light";
+    // Almacenar la preferencia del usuario en el almacenamiento local
+    localStorage.setItem("tema", body.id);
+}
+
+// Verificar si hay una preferencia de tema almacenada
+if (localStorage.getItem("tema")) {
+    var body = document.body;
+    // Establecer el tema según la preferencia del usuario
+    body.id = localStorage.getItem("tema");
+}
+
+// Evento clic para cambiar el tema
+document.getElementById("changeColor").addEventListener("click", function (event) {
+    event.preventDefault();
+    cambiarTema();
+});

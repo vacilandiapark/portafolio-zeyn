@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Michael Ingaruca</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Portafolio Michael Omar De La Cruz Ingaruca</title>
+    <meta name="description"
+        content="Bienvenido a mi Portafolio, mi nombre es Michael De La Cruz (ZeyN), te invito a conocer mis proyectos y avance profesional en este mundo de la tecnología y programación">
+    <meta name="author" content="ZeyN">
+    <meta http-equiv="cache-control" content="public">
+    <meta http-equiv="expires" content="0">
+    <meta name="theme-color" content="#910A67">
+    <meta name="keywords"
+        content="portafolios, web, programación, zeyn, michael, omar, vacilandia, vacilandia park, ingaruca, software, ingeniería">
+    <link rel="canonical" href="https://portafolio-zeyn.vercel.app/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,7 +23,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="dark">
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -192,14 +199,14 @@
                 <p>Que hermoso día, ¿verdad?</p>
             </div>
             <div class="opciones-2">
-                <a href="">#1d1f3c
+                <a href="">#a40070
                 </a>
                 <a href="">#910a67
                 </a>
                 <a href="">#f8fafc
                 </a>
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" width="25">
+                <a href="#" id="changeColor"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" width="25">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                     </svg>
@@ -234,7 +241,7 @@
                                             d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                     </svg>
                                     Descargar CV</a>
-                                <a href="https://portafolio-michaelingaruca.vercel.app/"><svg
+                                <a href="https://portafolio-michaelingaruca.vercel.app/"><svg id="ct"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -394,7 +401,7 @@
                                         <span>BOOTSTRAP</span>
                                         <span>JS</span>
                                     </div>
-                                    <p>Mi primera página web creada en el instituto cuando empece en el mundo de la
+                                    <p>Mi primera página web creada cuando empece en el mundo de la
                                         programación y web.
                                     </p>
                                     <div class="buttons">
@@ -651,7 +658,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1.50,
             spaceBetween: 25,
             navigation: true,
             autoplay: true,
@@ -659,6 +665,21 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            breakpoints: {
+                // Cuando el ancho de la pantalla sea igual o inferior a 1100px
+                1200: {
+                    slidesPerView: 1.5,
+                },
+
+                900: {
+                    slidesPerView: 1.1,
+                },
+
+                300: {
+                    slidesPerView: 1,
+                },
+                // Aquí puedes definir más breakpoints si es necesario
+            }
         });
     </script>
 </body>
